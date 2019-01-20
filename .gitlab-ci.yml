@@ -19,7 +19,7 @@ cache:
 before_script:
   - ruby -v                                   # Print out ruby version for debugging
   # Uncomment next line if your rails app needs a JS runtime:
-  # - apt-get update -q && apt-get install nodejs -yqq
+  - apt-get update -q && apt-get install nodejs -yqq
   - gem install bundler  # Bundler is not installed with the image
   - bundle install -j $(nproc) --path vendor  # Install dependencies into ./vendor/ruby
 
@@ -28,17 +28,17 @@ rubocop:
   script:
   - rubocop
 
-rspec:
-  script:
-  - rspec spec
-
 rails:
   variables:
     DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/$POSTGRES_DB"
   script:
   - rails db:migrate
   - rails db:seed
-  - rails test
+
+rspec:
+  script:
+  - rails db:test:prepare
+  - rspec spec
 
 # This deploy job uses a simple deploy flow to Heroku, other providers, e.g. AWS Elastic Beanstalk
 # are supported too: https://github.com/travis-ci/dpl
