@@ -1,5 +1,18 @@
 {
   "name": "transervicos",
   "private": true,
-  "dependencies": {}
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "@rails/webpacker": "3.5",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "vue": "^2.5.22",
+    "vue-loader": "14.2.2",
+    "vue-template-compiler": "^2.5.22"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
+  }
 }
