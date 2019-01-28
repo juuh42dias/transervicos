@@ -1,0 +1,13 @@
+AllCops:
+  RunRailsCops: true
+  Exclude:
+    - 'bin/**/*'
+    - 'node_modules/**/*'
+    - 'db/schema.rb'
+    - 'config/initializers/devise.rb'
+
+Metrics/LineLength:
+  Max: 120
+
+Documentation:
+  Enabled: false
