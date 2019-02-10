@@ -84,3 +84,11 @@ gem 'acts_as_votable'
 gem 'friendly_id'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
+gem 'health-monitor-rails'
+
+# TODO: Remove all deprecated dependencies and methods
+## group :deprecated do
+gem 'jquery-turbolinks'
+gem 'jasny-bootstrap-rails'
+gem 'bootstrap-sass'
+## end
