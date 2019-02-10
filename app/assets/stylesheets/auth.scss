@@ -1,0 +1,104 @@
+// Place all the styles related to the Registrations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.auth {
+  h1 {
+    font-size: 48px;
+    color: #FFF;
+    margin: 60px 0;
+    text-align: center;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0 20px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .field-group {
+    box-shadow: 1px 2px 8px rgba(0,0,0,0.5);
+    margin-bottom: 30px;;
+  }
+
+  .field {
+    input[type=text], input[type=email], input[type=password], input[type=tel], input[type=date] {
+      width: 100%;
+      border: 1px solid #CCC;
+      border-top: none;
+      line-height: 45px;
+      font-size: 16px;
+      font-family: inherit;
+      padding: 0 10px 0 50px;
+      background-repeat: no-repeat;
+      background-position: 15px 12px;
+    }
+    input[type=checkbox] {
+
+    }
+    &:first-child {
+      input[type=text], input[type=email], input[type=password] {
+        border-top: 1px solid #CCC;
+        border-radius: 3px 3px 0 0;
+      }
+    }
+    &:last-child {
+      input[type=text], input[type=email], input[type=password] {
+        border-radius: 0 0 3px 3px;
+      }
+    }
+  }
+
+  .input-user {
+    background-image: image-url("ico-user.png");
+  }
+
+  .input-password {
+    background-image: image-url("ico-password.png");
+  }
+
+  .btn {
+    line-height: 45px;
+    background: #FFF;
+    border: none;
+    width: 100%;
+    border-radius: 3px;
+    box-shadow: 1px 2px 8px rgba(0,0,0,0.5);
+    color: #5E96CD;
+    font-family: Passion One;
+  	font-weight: 700;
+  	text-transform: uppercase;
+    font-size: 24px;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+
+    &:hover, &:focus {
+      box-shadow: 0px 1px 8px rgba(0,0,0,0.5);
+      line-height: 44px;
+      padding: 1px 0 0 0;
+      background: #F5F5F5;
+    }
+  }
+
+  .not-user-text {
+    color: #FFF;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .lnk-forgot-password {
+    color: #FFF;
+    text-align: center;
+    display: block;
+    text-align: center;
+    font-weight: normal;
+    font-size: 16px;
+    margin: 20px;
+    font-style: italic;
+  }
+}

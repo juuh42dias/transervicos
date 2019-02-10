@@ -1,0 +1,47 @@
+/*Fonts*/
+$font1: 'Passion One';
+$font2: 'Bitter';
+$font3: 'Nunito';
+
+/*Colors*/
+$fuchsia: #cc2c71;
+$purple: #3a3f63;
+$light-blue: #D2EBF8;
+$dark-blue: #6798C9;
+
+/*Color classes*/
+.bg-fuchsia,
+.bg-purple,
+.bg-dark-blue {
+    color: rgba(255,255,255,0.9);
+}
+
+.bg-fuchsia {background-color: $fuchsia;}
+.bg-purple {background-color: $purple}
+.bg-light-blue {background-color: $light-blue}
+.bg-dark-blue {background-color: $dark-blue}
+
+.text-fuchsia {color: $fuchsia !important;}
+.text-purple {color: $purple;}
+.text-light-blue {color: $light-blue;}
+.text-dark-blue {color: $dark-blue;}
+.text-white {color: white;}
+
+
+/*Typography*/
+.font0-8x {
+  font-size: 0.8em;
+}
+.font1-2x {
+    font-size: 1.2em;
+}
+.font1-5x {
+    font-size: 1.5em;
+}
+
+
+/*Footer heights*/
+$footer-height-xs: 259px;
+$footer-height-sm: 193px;
+$footer-height-md: $footer-height-sm;
+$footer-height-xl: $footer-height-sm;

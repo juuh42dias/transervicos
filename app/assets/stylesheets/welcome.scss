@@ -1,0 +1,162 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "core";		 /*Global settings*/
+@import "variables"; /*Bootstrap variables*/
+
+header#main-header {
+	color: white;
+	padding: 3vh 0 8vh 0;
+	margin: 0;
+	h1 {
+		font-family: $font1;
+		font-weight: 700;
+		font-size: 7em;
+		text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+		text-transform: uppercase;
+		margin: 8vh 0;
+		@media (max-width: $screen-xs-max) {
+			font-size: 3.5em;
+			margin: 1vh 0;
+		}
+	}
+	.lead {
+		font-family: $font2;
+		font-size: 1.8em;
+		@media (max-width: $screen-xs-max) {
+			font-size: 1.4em;
+		}
+		p {
+			margin-bottom: 30px;
+		}
+	}
+	.cadastre-busque {
+		.btn-contorno {
+			margin: 0 12px;
+		}
+		@media (max-width: $screen-sm-max) {
+			line-height: 2em;
+		}
+	}
+}
+
+section#error-page {
+	padding: 30px 0;
+}
+
+section#feedback-tw {
+	padding: 30px 0;
+	background-image: image-url("test-ribbon.png");
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-size: 100px 100px;
+	@media (max-width: $screen-xs-max) {
+		background-size: 80px 80px;
+	}
+	h2 {
+		margin: 0 0 1em 0;
+	}
+	p {
+		margin-bottom: 1em;
+	}
+	a {
+		color: mix(white, $fuchsia, 40%);
+	}
+}
+
+section#trans-hoje {
+	padding: 10vh 0;
+	background: #FFF;
+	.row {
+		&>div {
+			h2 {
+				@media (max-width: $screen-xs-max) {
+					margin-top: 10vh;
+				}
+			}
+			&:first-of-type {
+				h2 {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+	h2 {
+		font-size: 24px;
+		font-family: $font1;
+		color: $dark-blue;
+		text-transform: uppercase;
+		margin: 0 0 15px 0;
+		padding: 0 50px;
+		&:before {
+			display: block;
+			margin: 0 auto;
+			margin-bottom: 15px;
+			content: "";
+			width: 60px;
+			height: 60px;
+			background-size: 100%;
+		}
+		&.brazil:before {
+			background: image-url("brazil_flag.svg") no-repeat 0 0;
+		}
+		&.rights:before {
+			background: image-url("scale.svg") no-repeat 0 0;
+		}
+		&.change:before {
+			background: image-url("people_in_love.svg") no-repeat 0 0;
+		}
+	}
+	a {
+		font-family: $font1;
+		font-weight: 500;
+		font-size: 1.5em;
+	}
+}
+
+section#desconstruindo-mitos {
+	background: $light-blue;
+	padding: 10vh 0;
+	-webkit-transition:all .35s;
+	-moz-transition:all .35s;
+	transition:all .35s;
+	border-top: 2px $fuchsia solid;
+	border-bottom: 2px $dark-blue solid;
+	h1 {
+		font-family: $font1;
+		text-transform: uppercase;
+		font-size: 3.5em;
+		margin-bottom: 1em;
+		color: $dark-blue;
+		@media (max-width: $screen-xs-max) {
+			font-size: 2em;
+		}
+	}
+	#mitos-container {
+
+	}
+	.mitos-controle {
+		text-align: center;
+		line-height: 2.5em;
+		color: transparentize($dark-blue, 0.65);
+		cursor: pointer;
+		i {
+			margin: 0 5px;
+			&.active {
+				color: $dark-blue;
+			}
+		}
+	}
+	.mito {
+		h2 {
+			font-family: $font2;
+			color: $dark-blue;
+			margin-bottom: 1em;
+		}
+		p {
+			color: darken($dark-blue, 30%);
+			margin-bottom: 1em;
+		}
+	}
+}
