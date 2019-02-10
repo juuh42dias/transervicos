@@ -1,0 +1,34 @@
+<div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="reportModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <%= form_for :report, url: report_path, :html => {:id => 'report_service_form'}  do |f| %>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="reportModalLabel">Denunciar este serviço</h4>
+      </div>
+      <div class="modal-body">
+          <%= f.hidden_field :service_id, required: true %>
+          <div class="form-group">
+            <%= f.label :email, "Insira seu email:", class: "control-label label-required"  %>
+            <%= f.text_field(:email, id:'report_email', class: 'form-control') %>
+            <span class="error"> </span>
+          </div>
+          <div class="form-group">
+            <%= f.label :detail, "Insira a descrição da sua denúncia para este serviço (máximo 255 caracteres):", class:"control-label label-required" %>
+            <%= f.text_area(:detail, id:'description', rows: 10, class: 'form-control', maxlength: "255") %>
+            <span class="error"> </span>
+          </div>
+          <div class="form-group">
+            <%= f.check_box :authorize, :id =>"authorize-report" %>
+            <%= f.label "Autorizo o envio da denúncia",:for => "authorize-report", class: "control-label label-required" %>
+            <span class="error"> </span>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <%= f.submit 'Submeter', class:'btn btn-danger', id:'btn-submit'%>
+      </div>
+        <% end %>
+    </div>
+  </div>
+</div>

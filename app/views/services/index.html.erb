@@ -1,0 +1,55 @@
+<section class="content">
+  <div class="container">
+    <h1 class="clearfix">
+      <% if user_signed_in? %>
+        <span class="font0-8x pull-right">
+          <% if !@services.empty? %>
+            <%= link_to new_service_path, class:"btn btn-sm btn-contorno" do %>
+              Cadastrar<span class="hidden-xs"> serviço</span>
+            <% end %>
+          <% end %>
+        </span>
+      <% end %>
+      Busca de Serviços
+    </h1>
+
+    <div>
+      <p class="text-white">Campos de busca</p>
+    </div>
+    <%= form_tag(services_path, :method => "get", id: "search-form") do %>
+      <div class="panel panel-search">
+        <div class="row">
+          <div class="col-md-12 form-group">
+            <%= label_tag :search, "Nome ou Descrição", class: 'control-label' %>
+            <%= text_field_tag :search, params[:search], placeholder: "Nome ou Descrição", id: 'search-description', class: 'form-control' %>
+          </div>
+          <div class="col-md-6 form-group">
+            <%= label_tag :state, "Estado", class: 'control-label' %>
+            <%= collection_select :state, :state_id, states_selector, :id, :name, { include_blank: 'Selecione um estado', selected: read_selected_state_from_url }, {id: 'state-selector', class: 'form-control' } %>
+          </div>
+          <div class="col-md-6 form-group">
+            <%= label_tag :city, "Cidade", class: 'control-label' %>
+            <%= collection_select :city, :city_id, [], :id, :name, {prompt: 'Selecione uma cidade'}, {id: 'city-selector', disabled: true , 'data-selected-city' => read_selected_city_from_url, class: 'form-control' }%>
+          </div>
+        </div>
+        <div class="row search-actions">
+          <div class="col-md-offset-4 col-md-8">
+            <%= button_tag "Limpar Campos", type: :reset, id: "reset_button", class: 'btn font1-2x btn-search' %>
+            <%= submit_tag "Buscar", class: 'btn font1-2x btn-search' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <% if @services.empty? %>
+      <div class="sem-servicos text-center">
+        <p>Não há serviços cadastrados.</p>
+        <%= link_to 'Cadastre o primeiro!', new_service_path, class:"btn btn-contorno" %>
+      </div>
+    <% else %>
+      <div id='posts'>
+        <%= render '/partials/service_list', services: @services %>
+      </div>
+    <% end %>
+  </div>
+</section>

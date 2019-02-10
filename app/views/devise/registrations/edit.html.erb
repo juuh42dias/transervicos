@@ -1,0 +1,51 @@
+<section class="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <h1>Editar meus dados</h1>
+
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= devise_error_messages! %>
+
+          <fieldset class="form-fieldset">
+            <div class="form-group input-user">
+              <%= f.label :social_name, "Nome" %>
+              <%= f.text_field :social_name, placeholder:'Você pode usar seu nome social', autofocus: true, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :birth_date, "Data de nascimento", :class=>"label-required" %>
+              <%= f.text_field :birth_date, class: 'form-control', value: f.object.birth_date.strftime("%d/%m/%Y")  %>
+            </div>
+            <div class="form-group input-password">
+              <%= f.label :password, "Nova senha", :class=>"label-required" %>
+              <%= f.password_field :password, placeholder: '(deixe em branco para não alterá-la)', autocomplete: "off", class: 'form-control' %>
+            </div>
+            <div class="form-group input-password">
+              <%= f.label :password_confirmation, "Nova senha (confirmação)", :class=>"label-required" %>
+              <%= f.password_field :password_confirmation, placeholder: '(repita a nova senha para alterá-la)', autocomplete: "off", class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :email, "Endereço de e-mail", :class=>"label-required" %>
+              <%= f.email_field :email, class: 'form-control' %>
+            </div>
+          </fieldset>
+
+          <h2>Forneça sua senha atual para confirmar as alterações:</h2>
+          <fieldset class="form-fieldset">
+            <div class="form-group input-password">
+              <%= f.label :current_password, "Senha atual", :class=>"label-required" %>
+              <%= f.password_field :current_password, autocomplete: "off", class:"form-control" %>
+            </div>
+          </fieldset>
+
+          <div class="actions">
+            <%= f.submit "Atualizar meus dados", class:"btn btn-form btn-block" %>
+          </div>
+        <% end %>
+
+        <p class="not-user-text">Caso deseje exlcuir sua conta, clique no botão abaixo.</p>
+        <%= button_to "Excluir minha conta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-form btn-block" %>
+      </div>
+    </div>
+  </div>
+</section>

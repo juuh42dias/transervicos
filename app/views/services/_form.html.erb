@@ -1,0 +1,121 @@
+<%= form_for @service, :html => { :id => "formform", :novalidate => 'novalidate' } do |f| %>
+  <% if @service.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@service.errors.count, "erro") %> <%= t('misc.impedir', count: @service.errors.count) %> a finalização do cadastro:
+      </h2>
+
+      <ul>
+        <% @service.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h2>Sobre o serviço</h2>
+  <fieldset class="form-fieldset">
+    <div class="form-group input-user">
+      <%= f.label :name, "Nome do serviço oferecido", class: "label-required" %>
+      <%= f.text_field :name, required: true, placeholder:"", class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :website, "Site" %>
+      <%= f.url_field :website, required: false, placeholder:"", class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description, "Descrição", class: "label-required" %>
+      <%= f.text_area :description, required: true, placeholder:"", class:"", rows:"5" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :phone, "Telefone" %>
+      <%= f.telephone_field :phone, placeholder:"", class:"form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :other_phone, "Telefone 2" %>
+      <%= f.telephone_field :other_phone, placeholder:"", class:"form-control" %>
+    </div>
+    <div class="form-group" id="owner-check" data-is-owner=<%= should_display_owner_data(@service) %>>
+      <div class="radio">
+        <label>
+          <input type="radio" name="prestador" id="prestador1" value="prestador">
+          Sou a pessoa prestadora do serviço.
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="prestador" id="prestador2" value="recomendacao">
+          Estou cadastrando o serviço de outra pessoa.
+        </label>
+      </div>
+    </div>
+    <div id="dados-recomendacao" style="display:none" >
+      <div class="form-group input-user">
+        <%= f.label :owner_name, "Nome da pessoa prestadora do serviço", class: "label-required" %>
+        <%= f.telephone_field :owner_name, placeholder:"Você pode informar o nome social.", class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :owner_email, "Email da pessoa prestadora do serviço" %>
+        <%= f.telephone_field :owner_email, placeholder:"", class:"form-control" %>
+      </div>
+    </div>
+  </fieldset>
+
+  <h2>Endereço</h2>
+  <p class="text-white">Somente cidade e estado são obrigatórios.</p>
+  <fieldset class="form-fieldset">
+    <%= f.fields_for :address do |a| %>
+      <div class="form-group">
+        <%= f.label :state, "Estado", class: "label-required" %>
+        <%= a.collection_select :state_id, states_selector, :id, :name, {prompt: 'Selecione um estado'}, {id: 'state-selector' } %>
+      </div>
+      <div class="form-group">
+        <%= f.label :city, "Cidade", class: "label-required" %>
+        <%= a.collection_select :city_id, [], :id, :name, {prompt: 'Selecione uma cidade'}, {id: 'city-selector', disabled: true, 'data-selected-city' => @service.try(:address).try(:city_id) }%>
+      </div>
+      <div class="form-group">
+        <%= f.label :street, "Logradouro" %>
+        <%= a.text_field :street, label: '', placeholder:"", class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :number, "Número" %>
+        <%= a.text_field :number, label: '', placeholder:"", class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :complement, "Complemento" %>
+        <%= a.text_field :complement, label: '', placeholder:"", class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :neighborhood, "Bairro" %>
+        <%= a.text_field :neighborhood, label: '', placeholder:"", class:"form-control" %>
+      </div>
+    <% end %>
+  </fieldset>
+
+  <h2>Área</h2>
+  <fieldset class="form-fieldset">
+    <% selected_area = get_selected_subarea_id(@service) %>
+    <% selected_subareas = get_selected_subareas(@service) %>
+    <div class="form-group">
+      <!-- Esse foi o jeito que eu achei que deveria funcionar -->
+      <%= f.label :area_id, "Área", :class=>"label-required" %>
+      <%= select_tag  :area_id, options_from_collection_for_select(Area.all, :id, :area, selected_area),
+        :prompt => "Selecione uma área" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :subarea_id, "Subárea", :class=>"label-required" %>
+      <%= f.select :subarea_id,
+        options_from_collection_for_select(selected_subareas, :id, :subarea, @service.subarea_id),
+        { prompt: 'Selecione uma subárea'},
+        { "data-option-dependent" => true,
+          "data-option-observed" => :area_id,
+          "data-option-url" => "/area/:area_id:/subareas.json",
+          "data-option-key-method" => :id,
+          "data-option-value-method" => :subarea } %>
+    </div>
+  </fieldset>
+
+  <div class="actions">
+    <%= f.submit save_service_text(@service), class: 'btn btn-block btn-form' %>
+  </div>
+<% end %>

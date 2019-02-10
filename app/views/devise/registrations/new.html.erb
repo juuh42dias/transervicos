@@ -1,0 +1,113 @@
+<section class="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <h1>Criar conta</h1>
+
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
+          <fieldset class="form-fieldset">
+            <div class="form-group input-user">
+              <%= f.label :social_name, "Nome", class: "label-required" %>
+              <%= f.text_field :social_name, placeholder:'Você pode usar seu nome social', class: 'form-control' %>
+              <span class="error" />
+            </div>
+            <div class="form-group">
+              <%= f.label :birth_date, "Data de nascimento", class: "label-required" %>
+              <%= f.text_field :birth_date, placeholder:'dd/mm/yyyy', class: 'form-control'  %>
+              <span class="error" />
+            </div>
+            <div class="form-group input-password">
+              <%= f.label :password, "Senha", class: "label-required" %>
+              <%= f.password_field :password, placeholder:'Mínimo de 8 caracteres', autocomplete: "off", class: 'form-control' %>
+              <span class="error" />
+            </div>
+            <div class="form-group input-password">
+              <%= f.label :password_confirmation, "Senha (confirmação)", :class=>"label-required" %>
+              <%= f.password_field :password_confirmation, placeholder:'Confirme sua senha', autocomplete: "off", class: 'form-control' %>
+              <span class="error" />
+            </div>
+            <div class="form-group">
+              <%= f.label :email, "Endereço de e-mail", class: "label-required" %>
+              <%= f.email_field :email, class: 'form-control' %>
+              <span class="error" />
+            </div>
+          </fieldset>
+
+          <div>
+            <p class="text-white">Termos de uso</p>
+          </div>
+          <fieldset class="form-fieldset">
+            <div class="form-group terms-of-service">
+              <section>
+                <h4>Políticas de Privacidade e Relacionamento com Usuários – Transerviços</h4>
+                <p>No Transerviços a privacidade é um assunto de grande importância! Por esta razão este documento busca detalhar aos Usuários como suas informações são utilizadas em nosso site. É recomendado que os Usuários leiam atentamente.</p>
+                <p>Esta Política de Privacidade se aplica a todos os Usuários do site Transerviços (http://www.transervicos.com.br), contendo informações claras sobre coleta, uso, armazenamento e proteção de dados. O Transerviços poderá alterar esta Política de Privacidade a qualquer tempo, ficando o Usuário responsável por consultar regularmente estes termos a fim de verificar se concorda ou não com as alterações realizadas e se pretende continuar acessando o site.</p>
+                <p>Os Usuários do site Transerviços podem acessá-lo para finalidades distintas, seja para cadastrar serviços ofertados por quem cadastra ou serviço de um terceiro que declaradamente não discrimine a população de pessoas trans e travestis, sendo certo que em quaisquer destes usos autorizam expressamente que o Transerviços colete e armazene seus dados de navegação e suas informações pessoais, utilizando-os na forma prevista nesta Política de Privacidade.</p>
+                <p>Esta Política se aplica a todos os produtos e aplicações disponibilizados pelo site Transerviços, podendo haver termos específicos para determinados produtos, o que será informando oportunamente ao Usuário.</p>
+              </section>
+              <section>
+                <h4>Coleta e Utilização de Informações do Usuário</h4>
+                <ol type="i">
+                  <li>Informações pessoais
+                    <p>Ao utilizar o site Transerviços para quaisquer das finalidades mencionadas acima, serão coletadas informações pessoais que poderão incluir, entre outras, nome, endereço de e-mail, telefone para contato, sexo, data de nascimento, endereço, número de CPF, cargo, salário ou pretensão de remuneração. Os dados informados pelo Usuário são de sua exclusiva responsabilidade.</p>
+                    <p>Os dados pessoais informados pelo Usuário não serão divulgados e somente serão armazenados dentro da plataforma Transerviços, sendo imprescindíveis para viabilizar o contato com os próprios Usuários.</p>
+                    <p>É possível que as informações dos Usuários permaneçam armazenadas mesmo após o encerramento de uma conta de Usuário. Este armazenamento poderá ocorrer caso seja mandatória ao cumprimento de obrigações de natureza judicial, legal ou regulatória, para evitar fraudes ou uso indevido, bem como para assegurar o estrito cumprimento desta Política de Privacidade e demais contratos que regulem a relação entre o Transerviços e os Usuários.</p>
+                  </li>
+                  <li>Informações profissionais
+                    <p>O Transerviços poderá coletar e utilizar também informações profissionais dos seus Usuários, tanto internamente em sua plataforma, como também em toda a Internet ainda para fins estatísticos. Informações profissionais e de contato serão utilizadas para aproximar seus Usuários (Prestadores de Serviços e Contratantes dos Serviços) e garantir a efetividade das suas ferramentas; proporcionar ao Usuário uma experiência adequada ao seu perfil de cadastro.</p>
+                    <p>Ao utilizar o site Transerviços para anunciar seu serviço, o Usuário assume que todas as informações cadastradas estarão visíveis a todos que utilizarem o site Transerviços, sendo que o nome social será o visível a todos, preservando-se o nome civil, caso ambos sejam informados. Estas configurações são aplicáveis para interferir na forma como os prestadores de serviços terão visibilidade dos seus serviços ao se efetuar uma busca em nosso banco de serviços.</p>
+                  </li>
+                  <li>Informações de navegação
+                    <p>O Transerviços coleta o endereço do protocolo de Internet (“IP”) do computador ou servidor utilizado pelo Usuário para acesso às nossas aplicações, logs e demais dados para fins de controle de acesso à sua plataforma.</p>
+                    <p>A fim de evitar o compartilhamento dos dados de navegação, o Usuário pode optar por desabilitar os “cookies” em seu navegador ou ainda pela navegação anônima de acordo com o navegador utilizado, caso contrário, estará ciente do compartilhando dos seus dados de navegação e acesso.</p>
+                    <p>O Transerviços poderá utilizar ainda os dados de localização do Usuário, quando o acesso se der por meio de um dispositivo móvel, visando a otimização das funcionalidades do site. O Usuário poderá desabilitar a utilização de sua localização diretamente em seu dispositivo móvel.</p>
+                    <p>A experiência de navegação e funcionalidades do site Transerviços poderão ser prejudicadas significativamente, caso o Usuário opte por não compartilhar seus dados de navegação e localização.</p>
+                  </li>
+                </ol>
+              </section>
+              <section>
+                <h4>Comunicação</h4>
+                <p>Toda e qualquer comunicação do Transerviços aos seus Usuários se dará apenas com o intuito de oferecer notificações pertinentes sobre a utilização da sua plataforma e dos seus produtos e funcionalidades. Fica desde já ressaltado que o Transerviços não faz o envio de nenhum tipo de SPAM.</p>
+                <p>As mensagens do Transerviços são enviadas apenas para o e-mail cadastrado pelo Usuário. O Transerviços não coleta e-mails de listas de discussão, sites não comerciais e não pratica qualquer tipo de compra ou venda de listas de e-mails.</p>
+                <p>Os comunicados do Transerviços são enviados apenas a e-mails cadastrados pelos próprios Usuários e seu recebimento pode ser interrompido a qualquer momento, por meio de um link localizado no final das mensagens ou enviando uma mensagem para transervicos@gmail.com.br. Toda solicitação de exclusão de e-mail será prontamente atendida.</p>
+              </section>
+              <section>
+                <h4>Segurança</h4>
+                <p>O acesso pelo Usuário ao seu cadastro se dará por meio de login e senha confidenciais e de uso pessoal, ficando este responsável pela sua guarda e sigilo.</p>
+                <p>O Transerviços sempre observará as normas aplicáveis à segurança dos seus dados, além de utilizar de medidas de segurança para navegação, visando a proteção contra qualquer acesso não autorizado. O Usuário está ciente da suscetibilidade a falhas e vulnerabilidades por tratar-se de conteúdos disponibilizados na Internet, porém, o Transerviços se compromete a envidar sempre os seus melhores esforços a fim de evitá-los.</p>
+              </section>
+              <section>
+                <h4>Ações não permitidas</h4>
+                <p>É estritamente proibida qualquer utilização de dispositivos, softwares, scripts, ou qualquer outro mecanismo, tais como: robot, crawler, data mining, data scraping entre outros.</p>
+                <p>Não serão toleradas quaisquer formas de engenharia reversa, seja para desmontar, decifrar, descompilar ou de alguma maneira tentar copiar o código fonte ou qualquer outro conteúdo de propriedade intelectual disponível no ambiente do Transerviços. Não é autorizada qualquer ação que possa comprometer as funcionalidades do site e/ou das ferramentas do Transerviços.</p>
+                <p>É vedada a reprodução, publicação, compartilhamento, ainda que em parte, de qualquer conteúdo do site do Transerviços, por qualquer meio, incluindo mas não se limitando a redes sociais, blogs e comunidades virtuais.</p>
+              </section>
+              <section>
+                <h4>Conteúdo do site</h4>
+                <p>Por se tratar de um conteúdo dinâmico, o site pode conter pequenos erros tipográficos. Alterações podem ser feitas sem aviso prévio.</p>
+                <p>O Transerviços não se responsabiliza por conteúdo de outras páginas da Internet que porventura vierem a ser acessadas a partir do seu site.</p>
+              </section>
+            </div>
+          </fieldset>
+
+          <div class="text-center">
+            <div class="checkbox font1-2x">
+              <label class="label-required">
+                <%= f.check_box :terms_of_service, as: :boolean, label: 'Aceito os termos de uso', class: 'checkbox' %> <span class="text-fuchsia">*</span>&nbsp;Aceito os termos de uso
+              </label>
+            </div>
+          </div>
+          <div class="actions">
+            <%= f.submit "Cadastrar", class: 'btn btn-block btn-form' %>
+          </div>
+        <% end %>
+        <p class="not-user-text">Já tem cadastro?</p>
+
+        <%= link_to "Acessar", new_session_path(resource_name), class: 'btn btn-block btn-form' %>
+        <!-- <%= render "devise/shared/links" %> -->
+      </div>
+    </div>
+  </div>
+</section>

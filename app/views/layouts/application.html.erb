@@ -1,16 +1,122 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Transervicos</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <title>Transervicos</title>
+        <%= stylesheet_link_tag    'application', media: 'all' %>
+        <%= javascript_include_tag 'application' %>
+        <%= csrf_meta_tags %>
+        <%= favicon_link_tag(source='favicon.ico') %>
+        <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Bitter:400,400italic,700' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Nunito:300' rel='stylesheet' type='text/css'>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application' %>
-  </head>
+        <!--font-awesome-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    </head>
+    <body>
+      <!-- Facebook JavaScript SDK -->
+      <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.5&appId=262687593762256";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
 
-  <body>
-    <%= yield %>
-  </body>
+      <!--Twitter JavaScript Widget-->
+      <script>window.twttr = (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+          t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+
+        t._e = [];
+        t.ready = function(f) {
+          t._e.push(f);
+        };
+
+        return t;
+      }(document, "script", "twitter-wjs"));</script>
+
+      <!-- Google Analytics -->
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-72975624-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+        <nav class="navbar navbar-default navbar-static-top" id="main-navbar">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <% if !current_page?('/') %>
+                      <%= link_to image_tag('transervicos-logo.svg'), root_path, class:"navbar-brand" %>
+                    <% end %>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav navbar-right">
+                    <li>
+                      <%= link_to "Serviços", services_path %>
+                    </li>
+                    <% if user_signed_in? %>
+                      <li>
+                        <%= link_to "Meu perfil", dashboard_path%>
+                      </li>
+                    <% else %>
+                      <li>
+                        <%= link_to 'Entrar', new_user_session_path, class: "btn-contorno" %>
+                      </li>
+                    <% end %>
+                  </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <div></div>
+
+        <%= yield %>
+
+        <section id="about">
+
+        </section>
+
+        <footer id="main-footer" class="footer">
+          <div class="about">
+            <div class="container">
+          		<div class="row">
+          			<div class="col-md-8 col-sm-5">
+                  <%= link_to image_tag('transervicos-logo.svg', style:"height: 40px"), root_path %>
+          			</div>
+          			<div class="col-md-4 col-sm-6">
+          				<h2>
+          					Compartilhe
+          				</h2>
+                  <div class="pull-left fb-share-button" data-href="http://transervicos.herokuapp.com" data-layout="button"></div>
+                  <div class="pull-left" style="margin-left: 7px;">
+                    <a class="twitter-share-button"
+                      href="https://twitter.com/intent/tweet?text=Conhe&ccedil;a o Transervi&ccedil;os - servi&ccedil;os para pessoas trans e travestis http://www.transervicos.com.br/">
+                    Tweet</a>
+                  </div>
+          			</div>
+          		</div>
+          	</div>
+          </div>
+          <div class="copyright text-center">
+          	<strong>Transerviços</strong> | Copyright © 2016<br/>
+          	Feito com carinho <i class="fa fa-heart"></i>
+          </div>
+        </footer>
+
+    </body>
 </html>

@@ -1,0 +1,55 @@
+<section class="content">
+  <div class="container">
+    <div class="panel panel-default panel-lista">
+      <div class="row row-eq-height">
+        <div class="col-sm-4 bg-light-blue nome text-dark-blue">
+          <h2>
+            <%= @service.name %>
+          </h2>
+        </div>
+        <div class="col-sm-8">
+          <div class="panel-body info">
+            <div class="desc font1-2x">
+              <%= @service.description %>
+            </div>
+            <% unless @service.website.blank? %>
+              <div class="attr">
+                <i class="fa fa-lg fa-external-link text-dark-blue pull-left"></i>
+                <div class="service-link"><%= link_to @service.website.html_safe, @service.website, target: :_blank %></div>
+              </div>
+            <% end %>
+            <% if !@service.phone.blank? %>
+              <div class="attr">
+                <i class="fa fa-lg fa-phone text-dark-blue pull-left"></i>
+                <div><%= @service.phone %></div>
+              </div>
+            <% end %>
+            <div class="attr">
+              <i class="fa fa-lg fa-user text-dark-blue pull-left"></i>
+              <% if @service.owner_name.blank? %>
+                <div><%= @service.owner %></div>
+              <% else %>
+                <div><%= @service.owner_name %></div>
+                <div class="referer">
+                  <span>Cadastrado por</span> <%= @service.owner %>
+              </div>
+            <% end %>
+            </div>
+            <div class="attr">
+              <i class="fa fa-lg fa-map-marker text-dark-blue pull-left"></i>
+              <div><%= @service.address.city.name %> &ndash; <%= @service.address.state.name %></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% @reports.each do |report| %>
+      <div class="panel panel-default panel-lista">
+        <div class="row row-eq-height">
+          <div class="col-sm-4 bg-dark-blue nome"><%= report.email %> </div>
+          <div class="col-sm-8 nome"><%= report.detail %> </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>

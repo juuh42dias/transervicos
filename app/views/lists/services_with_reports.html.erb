@@ -1,0 +1,16 @@
+<section class="content">
+  <div class="container">
+    <h1 class="clearfix">
+      Lista de Serviços com Denúncias
+    </h1>
+        <% if @services.empty? %>
+      <div class="sem-servicos text-center">
+        <p>Não há serviços cadastrados.</p>
+      </div>
+    <% else %>
+      <div id='posts'>
+        <%= render '/partials/service_with_reports_list', services: @services %>
+      </div>
+    <% end %>
+  </div>
+</section>

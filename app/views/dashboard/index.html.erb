@@ -1,0 +1,60 @@
+<section class="content" id="dashboard">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="panel panel-default panel-user-info">
+          <div class="panel-heading">
+            <h1 class="panel-title">
+              Olá,<br/>
+              <%= current_user.social_name %>
+            </h1>
+          </div>
+          <ul class="dashboard-menu">
+            <% if !@services.nil? %>
+              <li>
+                <%= link_to new_service_path, class:"" do %>
+                  <i class="fa fa-plus pull-left"></i>
+                  <div>Novo serviço</div>
+                <% end %>
+              </li>
+            <% end %>
+            <li>
+              <%= link_to edit_user_registration_path, class:"" do %>
+                <i class="fa fa-pencil pull-left"></i>
+                <div>Editar meus dados</div>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to controller: "lists", action: "services_with_reports" do %>
+                <i class="fa fa-exclamation pull-left"></i>
+                <div>Serviços com Denúncias</div>
+              <% end %>
+            </li>
+            <li class="logout">
+              <%= link_to destroy_user_session_path, :method => :delete do %>
+              <div>
+                Sair
+              </div>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <% if @services.empty? %>
+          <div class="sem-servicos text-center">
+            <p>Você ainda não cadastrou nenhum serviço.</p>
+            <%= link_to 'Cadastre o primeiro!', new_service_path, class:"btn btn-contorno" %>
+          </div>
+        <% else %>
+          <div>
+            <h1>Meus serviços</h1>
+            <% @services.each do |service| %>
+              <%= render '/partials/service', service: service %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

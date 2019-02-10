@@ -1,0 +1,216 @@
+<header id="main-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+				<h1 class="text-center">
+					<%= image_tag 'transervicos-logo.svg' %>
+				</h1>
+				<div class="lead text-center">
+                    <div class="col-sm-6 text-center cadastre-busque">
+    					<p>Você gostaria de cadastrar algum serviço que não discrimine as pessoas
+    						trans e travestis?</p>
+                        <% if !user_signed_in? %><%= link_to 'cadastre-se', new_user_registration_path, { :class=>"btn-contorno" } %>
+                        <% else %>
+                        <%= link_to 'Cadastre serviço', new_service_path, { :class=>"btn-contorno" } %>
+                        <% end %>
+                    </div>
+                    <div class="hidden-sm hidden-md hidden-lg mobile-separator"></div>
+                    <div class="col-sm-6 text-center cadastre-busque">
+                        <p>Você está em busca de serviços oferecidos por essas pessoas ou que não as discriminem?</p>
+    					<div class="cadastre-busque">
+    						<%= link_to 'busque serviços', services_path, { :class=>"btn-contorno" } %>
+    					</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<section id="trans-hoje">
+	<a name="trans-hoje"></a>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 text-center">
+				<h2 class="brazil">Como é ser trans ou travesti no Brasil hoje?</h2>
+				<p>
+					O Brasil é o país campeão mundial de assassinatos de travestis e transexuais.
+					A discriminação faz com que a grande maioria dessas pessoas não consiga
+					completar seus estudos e esteja fora do mercado de trabalho formal.
+				</p>
+				<!--<a href="javascript:;">Saiba mais</a>-->
+			</div>
+			<div class="col-md-4 text-center">
+				<h2 class="rights">Direitos que, por lei, deveríamos ter</h2>
+				<p>
+					Aprovação de uma lei de identidade de gênero para que as pessoas trans
+					e travestis possam modificar seus documentos sem grandes burocracias,
+					direito ao emprego, acesso ao sistema de saúde, leis de proteção contra
+					a transfobia, dentre outros.
+				</p>
+				<!--<a href="javascript:;">Saiba mais</a>-->
+			</div>
+			<div class="col-md-4 text-center">
+				<h2 class="change">O que eu posso fazer para mudar isso?</h2>
+				<p>
+					Que tal contratar uma das talentosas pessoas trans e travestis que anunciam
+					nesse site? E caso você conheça algum serviço que é verdadeiramente
+					respeitoso com as pessoas trans e travestis, que tal publicá-lo aqui?
+				</p>
+				<!--<a href="javascript:;">Saiba mais</a>-->
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="desconstruindo-mitos">
+	<a name="desconstruindo-mitos"></a>
+	<div class="container">
+		<h1 class="text-center">
+			Desconstruindo mitos<br class="visible-sm visible-md visible-lg"/>
+			sobre pessoas trans e travestis
+		</h1>
+		<div class="row">
+			<div class="col-sm-6 col-lg-5 col-lg-offset-1">
+				<%= image_tag 'trans-people.svg', { :class=>"img-responsive", :alt=>"Ilustração de pessoas trans" } %>
+			</div>
+			<div class="col-sm-6 col-lg-5">
+				<div class="mitos-controle text-right">
+					<i class="fa fa-lg fa-circle active" data-m="1"></i>
+					<i class="fa fa-lg fa-circle" data-m="2"></i>
+					<i class="fa fa-lg fa-circle" data-m="3"></i>
+				</div>
+				<div id="mitos-container">
+					<div class="mito" data-m="1">
+						<p class="lead text-fuchsia">Mito:</p>
+						<h2>
+							"Travestis e transexuais são opções sexuais."
+						</h2>
+						<p class="lead text-fuchsia">Fato:</p>
+						<p>
+							A palavra opção pode significar escolha, mas as pessoas travestis e
+							transexuais não escolhem ser travestis e transexuais, assim como as
+							pessoas cisgêneras não escolhem ser cisgêneras. Por pessoas cisgêneras
+							tomamos aquelas pessoas que nasceram e a elas foi atribuído um gênero
+							e assim elas se reconhecem. Muitas vezes usamos a abreviação cis para
+							a palavra cisgênero, sendo um prefixo do latim que significa "do mesmo
+							lado". Sendo assim, o homem cis ou cisgênero é aquela pessoa nascida
+							e designada homem e que se reconhece como homem, por exemplo.
+						</p>
+						<p>
+							A identidade de gênero não é passível de escolha, as pessoas podem
+							vir a se reconhecer ou não como travestis ou transexuais dentro da
+							formação e construção identitária de cada indivíduo.
+						</p>
+						<p>
+							Também não há que se falar em "sexuais" pois ser travesti ou transexual
+							não diz respeito à sexualidade das pessoas, mas sim à identidade de gênero.
+						</p>
+						<p>
+							A identidade de gênero diz respeito ao gênero que a pessoa intimamente
+							reconhece como seu, que pode ser o mesmo que ela foi registrada no
+							nascimento ou não.
+						</p>
+						<p>
+							Já a sexualidade das pessoas apontam para quem elas se atraem de forma
+							afetiva e sexualmente, então a pessoa pode se reconhecer como mulher,
+							independente do genital que ela tenha nascido, e isso diz respeito à
+							identidade de gênero e se atrair por pessoas de quaisquer gêneros, e
+							isso diz respeito à sua sexualidade ou orientação sexual.
+						</p>
+					</div>
+					<div class="mito" data-m="2" style="display:none">
+						<p class="lead text-fuchsia">Mito:</p>
+						<h2>
+							"Transexual é um viado que mudou de sexo, e travesti é um viado que
+							quer ser mulher ou usa roupa de mulher."
+						</h2>
+						<p class="lead text-fuchsia">Fato:</p>
+						<p>
+							Transexual e travesti são duas identidades de gênero.
+						</p>
+						<p>
+							Travesti é uma identidade de gênero latino-americana que abarca
+							pessoas nascidas e designadas homens que, ou se reconhecem como
+							mulheres ou não se reconhecem como homens ou mulheres, mas como
+							travestis - um gênero autônomo que pode ser uma fusão dos dois
+							gêneros (homem e mulher) ou a fuga desse binário de gênero.
+						</p>
+						<p>
+							Sendo assim, independente da roupa que a travesti usa ou não usa
+							ela continua sendo travesti, pois identidade de gênero não é uma
+							questão de aparência corporal ou vestuário. Ainda que uma travesti
+							esteja com roupas ditas masculinas, ela continua travesti. Vale
+							ressaltar que não devemos usar o pronome "o" para designar "o
+							travesti". O correto é usar o pronome "a": a travesti ou somente
+							travesti.
+						</p>
+						<p>
+							Já transexual é uma pessoa que nasceu e foi designada com um gênero
+							dentro do binário homem e mulher, mas se reconhece como pertencendo
+							ao outro gênero. Sendo assim falamos de mulheres transexuais para
+							as pessoas nascidas e designadas homens mas que se reconhecem
+							mulheres e homens trans para as pessoas nascidas e designadas
+							mulheres mas que se reconhecem como homens.
+						</p>
+						<p>
+							De modo que a pessoa transexual pode ter realizado cirurgias de
+							mudança de genital ou não, que ela continua transexual; já que a
+							identidade de gênero das pessoas não são definidas por cirurgias.
+						</p>
+						<p>
+							Também é preciso frisar que a cirurgia muda apenas um genital,
+							daí falamos em cirurgia de transgenitalização, cirurgia genital,
+							cirurgia de mudança de genital e não mudança de sexo, já que a
+							cirurgia não muda o sexo das pessoas.
+						</p>
+					</div>
+					<div class="mito" data-m="3" style="display:none">
+						<p class="lead text-fuchsia">Mito:</p>
+						<h2>
+							"Tratar as pessoas trans e travestis pelo nome social é crime de
+							falsidade ideológica."
+						</h2>
+						<p class="lead text-fuchsia">Fato:</p>
+						<p>
+							O nome social é aquele pelo qual a pessoa é reconhecida pelo seu
+							entorno social, que pode diferir do nome do registro civil.
+						</p>
+						<p>
+							Diversos municípios, estados e órgãos da administração federal como
+							o Ministério da Saúde, da Educação e do Planejamento e Gestão
+							reconhecem a importância e legalidade do nome social, sendo assim,
+							tratar uma pessoa travesti ou transexual pelo nome social não só é
+							uma forma de demonstrar respeito por essas pessoas mas é também um
+							ato de respeito à dignidade da pessoa humana, que é um dos princípios
+							basilares e cláusula pétrea da Constituição Federal. Além disso,
+							vale ressaltar que não há nenhuma tipificação penal contra essa
+							prática, ou seja, chamar uma pessoa travesti ou transexual pelo
+							nome social não é crime.
+						</p>
+						<p>
+							Tratar uma pessoa trans ou travesti pelo seu nome social é tratar
+							essa pessoa de forma digna. Em caso de dúvidas, é sempre preferível
+							perguntar por qual nome ela prefere ser tratada para não incorrermos
+							no erro de usar o nome do registro civil que pode desrespeitar a
+							identidade de gênero dessa pessoa.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+  $('.mitos-controle').children('i').on('click',function(){
+    var m = $(this).data('m');
+    $('#mitos-container').children('.mito').hide().filter('[data-m="'+m+'"]').show();
+    $(this).parent().children('i').removeClass('active');
+    $(this).addClass('active');
+  });
+});
+</script>

@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <style type="text/css">
+    #outlook a{
+      padding:0;
+    }
+    body{
+      width:100% !important;
+      font-family:'Open Sans','OpenSans',Arial,sans-serif;
+      text-align: center;
+    }
+    body{
+      -webkit-text-size-adjust:none;
+    }
+    table.main {
+      width: 600px;
+      text-align: left;
+      margin: 0 auto;
+    }
+    table.main td.header {
+      border-bottom: 2px #D2EBF8 solid;
+    }
+    table.main td.body {
+      padding: 30px 0;
+      font-family:'Open Sans','OpenSans',Arial,sans-serif;
+    }
+    table.main td.footer {
+      border-top: #D2EBF8 2px solid;
+      padding-top: 20px;
+      margin-top: 20px;
+    }
+    table.main td.footer p {
+      color: #6798C9;
+      font-size: 0.8em;
+      margin: 0 0 0.5em 0;
+      font-family:'Open Sans','OpenSans',Arial,sans-serif;
+    }
+    table.main h1 {
+      font-size: 1.6em;
+      text-align: right;
+      color: #6798C9;
+      font-weight: 200;
+      margin: 40px 0;
+      font-family:'Open Sans','OpenSans',Arial,sans-serif;
+    }
+    table.main .link {
+      margin-top: 40px;
+    }
+    table.main .link a {
+      font-size: 1.2em;
+      text-decoration: none;
+      background: #cc2c71;
+      color: white;
+      padding: 8px 24px;
+      border-radius: 20px;
+      font-family:'Open Sans','OpenSans',Arial,sans-serif;
+    }
+    table.main .link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+<table class="main" cellpadding="0" cellspacing="0">
+  <tr>
+    <td class="header">
+      <%= image_tag('logo-mail.png', style:"width: 230px", alt:"Transerviços") %>
+    </td>
+    <td class="header">
+      <h1>Seu serviço recebeu uma denúncia</h1>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="body">
+      <p>Olá!</p>
+      <p>
+        Abaixo está a denúncia que o serviço <strong><%= @report.service.name %></strong> recebeu:
+      </p>
+      <p>
+        <strong>Remetente: </strong> <%= @report.email %>
+      </p>
+      <p>
+        <strong>Descrição: </strong> <%= @report.detail %>
+      </p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

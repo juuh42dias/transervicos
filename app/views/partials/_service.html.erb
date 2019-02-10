@@ -1,0 +1,94 @@
+<div class="panel panel-default panel-servico">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <%= service.name %>
+      <div class="pull-right">
+        <%= render '/partials/like_unlike', service: service %>
+      </div>
+    </h4>
+  </div>
+  <div class="row info">
+    <div class="col-sm-5">
+      <div class="panel-body description">
+        <i class="fa fa-lg fa-info pull-left icon visible-xs"></i>
+        <div class="text">
+          <%= service.description %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-7">
+      <% unless service.website.blank? %>
+          <div class="attr">
+            <i class="fa fa-lg fa-external-link text-dark-blue pull-left"></i>
+            <div class="service-link"><%= link_to service.website, service.website, target: :_blank %></div>
+          </div>
+      <% end %>
+      <% if !service.phone.blank? %>
+        <div class="attr">
+          <i class="fa fa-lg fa-phone text-dark-blue pull-left"></i>
+          <div><%= service.phone %></div>
+        </div>
+      <% end %>
+      <% if !service.other_phone.blank? %>
+        <div class="attr">
+          <i class="fa fa-lg fa-phone text-dark-blue pull-left"></i>
+          <div><%= service.other_phone %></div>
+        </div>
+      <% end %>
+      <div class="attr">
+        <i class="fa fa-lg fa-user text-dark-blue pull-left"></i>
+        <div>
+          <% if service.owner_name.blank? %>
+            <%= service.owner %>
+          <% else %>
+            <%= service.owner_name %>
+            <div class="referer">
+              <span>Cadastrado por</span> <%= service.owner %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="attr">
+        <i class="fa fa-lg fa-map-marker text-dark-blue pull-left"></i>
+        <% if !service.address.street.blank? & !service.address.number.blank? %>
+          <div>
+            <%= "#{service.address.street}" %>
+            <% if !service.address.number.blank? %>
+              , <%= "#{service.address.number}"  %>
+            <% end %>
+          </div>
+        <% end %>
+        <% if !service.address.complement.blank? %>
+          <div>
+            <%= "#{service.address.complement}" %>
+          </div>
+        <% end %>
+        <% if !service.address.neighborhood.blank? %>
+          <div>
+            <%= "#{service.address.neighborhood}" %>
+          </div>
+        <% end %>
+        <div>
+          <%= "#{service.address.city.name}, #{service.address.state.name}" %>
+        </div>
+      </div>
+      <% if service.subarea %>
+        <div class="attr">
+          <i class="fa fa-lg fa-heart text-dark-blue pull-left"></i>
+          <div><%= "#{service.subarea.area.area if service.subarea.area}" %></div>
+          <div><%= "#{service.subarea.subarea}" %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <% if can? :edit, service %>
+    <div class="panel-footer text-right">
+      <div class="btn-group btn-group-sm">
+        <% link_content = "<i class='fa fa-lg fa-pencil'></i>&nbsp;Editar" %>
+        <%= link_to link_content.html_safe, edit_service_path(service), class: 'btn btn-default'%>
+        <% link_content = "<i class='fa fa-lg fa-times'></i>&nbsp;Excluir" %>
+        <%= link_to link_content.html_safe, service_path(service), method: :delete, data: { confirm: "Tem certeza que deseja excluir o serviço?" }, class: 'btn btn-danger'%>
+      </div>
+    </div>
+  <% end %>
+</div>

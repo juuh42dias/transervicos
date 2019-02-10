@@ -1,0 +1,29 @@
+<section class="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <h1 class="text-center">Esqueceu sua senha?</h1>
+
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <%= devise_error_messages! %>
+
+          <p class="not-user-text">Insira seu endereço de email abaixo para receber as intruções de como redefinir sua senha.</p>
+          <fieldset class="form-fieldset">
+            <div class="form-group">
+              <%= f.label :email, "Endereço de email", :class=>"label-required" %>
+              <%= f.email_field :email, autofocus: true, class:"form-control" %>
+            </div>
+          </fieldset>
+
+          <div class="actions">
+            <%= f.submit "Enviar instruções", class:"btn btn-form btn-block" %>
+          </div>
+        <% end %>
+
+        <div class="devise-links">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
