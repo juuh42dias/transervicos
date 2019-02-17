@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ServicesHelper
   def save_service_text(service)
     service.persisted? ? 'Salvar alterações' : 'Cadastrar serviço'
@@ -12,11 +14,11 @@ module ServicesHelper
   end
 
   def get_selected_subarea_id(service)
-    service.subarea && service.subarea.area ? service.subarea.area.id : nil
+    service.subarea&.area ? service.subarea.area.id : nil
   end
 
   def get_selected_subareas(service)
-    service.subarea && service.subarea.area ? service.subarea.area.subareas : []
+    service.subarea&.area ? service.subarea.area.subareas : []
   end
 
   def read_selected_state_from_url
@@ -29,16 +31,16 @@ module ServicesHelper
 
   def user_voted_for?(service)
     voter = current_user || VotingSession.find_by(ip: request.remote_ip)
-    voter && voter.voted_for?(service)
+    voter&.voted_for?(service)
   end
 
   def user_voted_up_service?(service)
     voter = current_user || VotingSession.find_by(ip: request.remote_ip)
-    voter && voter.voted_for?(service) && voter.voted_up_on?(service)
+    voter&.voted_for?(service) && voter&.voted_up_on?(service)
   end
 
   def user_voted_down_service?(service)
     voter = current_user || VotingSession.find_by(ip: request.remote_ip)
-    voter && voter.voted_for?(service) && voter.voted_down_on?(service)
+    voter&.voted_for?(service) && voter&.voted_down_on?(service)
   end
 end

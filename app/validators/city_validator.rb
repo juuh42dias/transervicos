@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CityValidator < ActiveModel::Validator
   REQUIRED_MESSAGE = 'deve ser selecionada'
   FAIL_MESSAGE = 'não existe'

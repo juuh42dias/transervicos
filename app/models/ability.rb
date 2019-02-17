@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Ability
   include CanCan::Ability
 
@@ -5,11 +7,11 @@ class Ability
     if user.nil?
       can :read, Service
     else
-      can [:read, :create], Service
-      can [:update, :destroy], Service, user_id: user.id
+      can %i[read create], Service
+      can %i[update destroy], Service, user_id: user.id
       can :manage, :all if user.admin?
     end
-    can [:upvote, :downvote], Service
+    can %i[upvote downvote], Service
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

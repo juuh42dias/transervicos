@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -23,14 +25,15 @@ class User < ApplicationRecord
   def age
     today = Date.current
     return if birth_date && (birth_date + 18.years) < today
+
     errors.add(:_, 'É preciso ser maior de idade.')
   end
 
   def preferred_name
     if name_preference == CIVIL_NAME_PREFERENCE
-      return civil_name.empty? ? social_name : civil_name
+      civil_name.empty? ? social_name : civil_name
     elsif name_preference == SOCIAL_NAME_PREFERENCE
-      return social_name.empty? ? civil_name : social_name
+      social_name.empty? ? civil_name : social_name
     end
   end
 

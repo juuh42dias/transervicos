@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class ServicesController < ApplicationController
   include PaginationHelper
-  before_action :set_service, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :set_service, only: %i[show edit update destroy]
+  before_action :authenticate_user!, only: %i[new create]
   load_and_authorize_resource
 
   RECORDS_PER_PAGE = 10
@@ -15,8 +17,7 @@ class ServicesController < ApplicationController
 
   # GET /services/1
   # GET /services/1.json
-  def show
-  end
+  def show; end
 
   # GET /services/new
   def new
@@ -26,8 +27,7 @@ class ServicesController < ApplicationController
   end
 
   # GET /services/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /services
   # POST /services.json
@@ -106,7 +106,7 @@ class ServicesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def service_params
-    address_attributes = [:id, :street, :number, :complement, :neighborhood, :city_id, :state_id]
+    address_attributes = %i[id street number complement neighborhood city_id state_id]
     params.require(:service).permit(:name, :description, :phone, :other_phone,
                                     :subarea_id, :owner_name, :owner_email,
                                     :website, address_attributes: address_attributes)

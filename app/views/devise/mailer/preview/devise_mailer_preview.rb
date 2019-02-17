@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Devise
   class MailerPreview < ActionMailer::Preview
     def reset_password_instructions

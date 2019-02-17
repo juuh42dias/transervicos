@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StatesController < ApplicationController
   respond_to :json
   def show

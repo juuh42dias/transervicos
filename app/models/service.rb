@@ -1,4 +1,5 @@
-# coding: utf-8
+# frozen_string_literal: true
+
 class Service < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
@@ -29,9 +30,9 @@ class Service < ApplicationRecord
     # rubocop:disable Metrics/LineLength
     where('unaccent(lower(services.name)) LIKE unaccent(:text) OR unaccent(lower(services.description)) LIKE unaccent(:text)', text: "%#{text.downcase}%")
   }
-  scope :state_search, -> (state_id) { joins(address: :state).where(states: { id: state_id }) }
-  scope :city_search, -> (city_id) { joins(address: :city).where(cities: { id: city_id }) }
-  scope :list_services_with_reports, -> () { joins('join reports on reports.service_id = services.id').distinct }
+  scope :state_search, ->(state_id) { joins(address: :state).where(states: { id: state_id }) }
+  scope :city_search, ->(city_id) { joins(address: :city).where(cities: { id: city_id }) }
+  scope :list_services_with_reports, -> { joins('join reports on reports.service_id = services.id').distinct }
 
   def owner
     user.preferred_name
@@ -68,6 +69,6 @@ class Service < ApplicationRecord
   end
 
   def url_with_protocol(url)
-    /^https?/i.match(url) ? url : "http://#{url}"
+    /^https?/i.match?(url) ? url : "http://#{url}"
   end
 end
