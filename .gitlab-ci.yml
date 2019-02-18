@@ -19,7 +19,7 @@ cache:
 before_script:
   - ruby -v                                   # Print out ruby version for debugging
   # Uncomment next line if your rails app needs a JS runtime:
-  - apt-get update -q && apt-get install nodejs -yqq
+  - apt-get update -q && apt-get install nodejs cmake build-essentials -yqq
   - gem install bundler  # Bundler is not installed with the image
   - gem install pronto pronto-rubocop pronto-brakeman
   - bundle install -j $(nproc) --path vendor  # Install dependencies into ./vendor/ruby
