@@ -47,7 +47,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-activemodel-mocks'
   gem 'rspec-rails', '~> 3.8'
-  gem 'rubocop'
 end
 
 group :development do
@@ -75,6 +74,8 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'i18n', '1.0.0'
+gem 'rubocop'
 
 # Old transervicos dependencies
 gem 'acts_as_votable'
