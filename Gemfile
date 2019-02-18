@@ -58,6 +58,8 @@ group :development do
   gem 'binding_of_caller'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pronto'
+  gem 'pronto-rubocop', require: false
 end
 
 group :test do
