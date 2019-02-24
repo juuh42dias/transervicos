@@ -1,4 +1,4 @@
-** Contributors **  
+**Contributors**  
 
 * [Brandon Dees](https://twitter.com/brandondees)
 * [Eduardo Stuart](https://twitter.com/eduardostuart)
