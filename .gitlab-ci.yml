@@ -13,6 +13,11 @@ services:
 cache:
   paths:
     - vendor/ruby
+stages:
+  - build
+  - test
+  - security
+  - deploy
 
 # This is a basic example for a gem or script which doesn't use
 # services such as redis or postgres
@@ -29,11 +34,12 @@ rubocop:
   script:
   - rubocop --config .rubocop.yml
 
-brakeman:
+security:
   script:
   - brakeman
+  allow_failure: true
 
-rails:
+build:
   variables:
     DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/$POSTGRES_DB"
   script:
@@ -41,7 +47,7 @@ rails:
   - rails db:migrate
   - rails db:seed
 
-rspec:
+test:
   script:
   - rails db:test:prepare
   - rspec spec
