@@ -16,7 +16,7 @@ cache:
 stages:
   - build
   - test
-  - security
+  - code_review
   - deploy
 
 # This is a basic example for a gem or script which doesn't use
@@ -30,17 +30,15 @@ before_script:
   - gem install pronto pronto-rubocop pronto-brakeman
   - bundle install -j $(nproc)  # Install dependencies into ./vendor/ruby
 
-# Optional - Delete if not using `rubocop`
-rubocop:
+code_review:
+  stage: code_review
   script:
   - rubocop --config .rubocop.yml
-
-security:
-  script:
   - brakeman
   allow_failure: true
 
 build:
+  stage: build
   variables:
     DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/$POSTGRES_DB"
   script:
@@ -51,6 +49,7 @@ build:
   - rails db:seed
 
 test:
+  stage: test
   script:
   - rails db:test:prepare
   - rspec spec
@@ -58,7 +57,7 @@ test:
 # This deploy job uses a simple deploy flow to Heroku, other providers, e.g. AWS Elastic Beanstalk
 # are supported too: https://github.com/travis-ci/dpl
 deploy:
-  type: deploy
+  stage: deploy
   environment: production
   script:
   - gem install dpl
