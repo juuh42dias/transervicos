@@ -25,6 +25,7 @@ before_script:
   - ruby -v                                   # Print out ruby version for debugging
   # Uncomment next line if your rails app needs a JS runtime:
   - apt-get update -q && apt-get install nodejs cmake build-essential libpq-dev -yqq
+  - source ~/.bashrc
   - cp config/database.yml.example config/database.yml
   - gem install bundler  # Bundler is not installed with the image
   - gem install pronto pronto-rubocop pronto-brakeman
@@ -42,6 +43,8 @@ build:
   variables:
     DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/$POSTGRES_DB"
   script:
+  - node -v
+  - npm -v
   - npm install yarn --progress=false
   - npm run build
   - rails db:create
