@@ -24,7 +24,8 @@ stages:
 before_script:
   - ruby -v                                   # Print out ruby version for debugging
   # Uncomment next line if your rails app needs a JS runtime:
-  - apt-get update -q && apt-get install npm nodejs cmake build-essential libpq-dev -yqq
+  - apt-get update -q && apt-get install nodejs cmake build-essential libpq-dev -yqq
+  - apt-get install npm
   - npm install yarn --progress=false
   - cp config/database.yml.example config/database.yml
   - gem install bundler  # Bundler is not installed with the image
