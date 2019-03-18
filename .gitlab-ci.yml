@@ -27,7 +27,7 @@ before_script:
   # Install node and some other deps
   - curl -sL https://deb.nodesource.com/setup_8.x | bash -
   - apt-get update -yq
-  - apt-get install -y apt-transport-https build-essential cmake nodejs libpq-dev python-software-properties software-properties-common unzip
+  - apt-get install -y apt-transport-https build-essential cmake nodejs libpq-dev python3-software-properties software-properties-common unzip
 
   # Install yarn
   - wget -q -O - https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
