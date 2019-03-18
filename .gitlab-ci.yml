@@ -24,12 +24,22 @@ stages:
 before_script:
   - ruby -v                                   # Print out ruby version for debugging
   # Uncomment next line if your rails app needs a JS runtime:
-  - apt-get update -q && apt-get install nodejs cmake build-essential libpq-dev -yqq
-  - source ~/.bashrc
+  # Install node and some other deps
+  - curl -sL https://deb.nodesource.com/setup_8.x | bash -
+  - apt-get update -yq
+  - apt-get install -y apt-transport-https build-essential cmake nodejs libpq-dev python-software-properties software-properties-common unzip
+
+  # Install yarn
+  - wget -q -O - https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+  - echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list
+  - apt-get update -yq
+  - apt-get install -y yarn
+
   - cp config/database.yml.example config/database.yml
   - gem install bundler  # Bundler is not installed with the image
   - gem install pronto pronto-rubocop pronto-brakeman
-  - bundle install -j $(nproc)  # Install dependencies into ./vendor/ruby
+  - bundle check || bundle install --jobs $(nproc)
+  - yarn install
 
 code_review:
   stage: code_review
@@ -43,18 +53,15 @@ build:
   variables:
     DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/$POSTGRES_DB"
   script:
-  - node -v
-  - npm -v
-  - npm install yarn --progress=false
-  - npm run build
-  - rails db:create
-  - rails db:migrate
-  - rails db:seed
+  - yarn run build
+  - bundle exec rails db:create
+  - bundle exec rails db:migrate
+  - bundle exec rails db:seed
 
 test:
   stage: test
   script:
-  - rails db:test:prepare
+  - bundle exec rails db:test:prepare
   - rspec spec
 
 # This deploy job uses a simple deploy flow to Heroku, other providers, e.g. AWS Elastic Beanstalk
