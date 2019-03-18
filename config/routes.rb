@@ -2,7 +2,6 @@
 
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  mount HealthMonitor::Engine, at: '/'
 
   scope(path_names: { new: 'novo', edit: 'editar' }) do
     resources :services, path: 'servicos' do

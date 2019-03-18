@@ -124,8 +124,6 @@ GEM
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
-    health-monitor-rails (8.5.0)
-      rails (>= 4.0)
     httparty (0.16.4)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
@@ -396,7 +394,6 @@ DEPENDENCIES
   factory_bot_rails
   faker
   friendly_id
-  health-monitor-rails
   i18n (= 1.0.0)
   jasny-bootstrap-rails
   jbuilder (~> 2.5)
