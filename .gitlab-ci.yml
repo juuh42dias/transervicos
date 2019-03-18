@@ -44,6 +44,7 @@ before_script:
 code_review:
   stage: code_review
   script:
+  - pronto run -f gitlab -c origin/master
   - rubocop --config .rubocop.yml
   - brakeman
   allow_failure: true
