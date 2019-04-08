@@ -10,8 +10,9 @@ services:
   - postgres:latest
 
 variables:
-  POSTGRES_DB: transervicos_production
+  POSTGRES_DB: transervicos_test
   POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: ""
 
 # Cache gems in between builds
 cache:
