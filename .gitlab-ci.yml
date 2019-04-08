@@ -9,6 +9,10 @@ image: "ruby:2.6"
 services:
   - postgres:latest
 
+  variables:
+  POSTGRES_DB: transervicos_production
+  POSTGRES_USER: postgres
+
 # Cache gems in between builds
 cache:
   paths:
