@@ -10,9 +10,8 @@ services:
   - postgres:latest
 
 variables:
-  POSTGRES_DB: transervicos_test
-  POSTGRES_USER: postgres
-  POSTGRES_PASSWORD: ""
+  DATABASE_URL: postgresql://postgres@postgres
+  RAILS_ENV: 'test'
 
 # Cache gems in between builds
 cache:
@@ -56,13 +55,11 @@ code_review:
 
 build:
   stage: build
-  variables:
-    DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/$POSTGRES_DB"
   script:
   - yarn run build
   - bundle exec rails db:create
   - bundle exec rails db:migrate
-  - bundle exec rails db:seed
+  - bundle exec rails db:seed #  TODO: Change/refactor to run once
 
 test:
   stage: test
