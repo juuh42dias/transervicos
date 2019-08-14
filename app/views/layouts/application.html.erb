@@ -62,7 +62,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <% if !current_page?('/') %>
-                      <%= link_to image_tag('transervicos-logo.svg'), root_path, class:"navbar-brand" %>
+                      <%= link_to image_tag('transervicos-logo.svg', alt: 'Transerviços'), root_path, class:"navbar-brand" %>
                     <% end %>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -96,7 +96,7 @@
             <div class="container">
           		<div class="row">
           			<div class="col-md-8 col-sm-5">
-                  <%= link_to image_tag('transervicos-logo.svg', style:"height: 40px"), root_path %>
+                  <%= link_to image_tag('transervicos-logo.svg', style:"height: 40px", alt: "Transerviços"), root_path %>
           			</div>
           			<div class="col-md-4 col-sm-6">
           				<h2>
