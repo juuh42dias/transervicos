@@ -1,24 +1,27 @@
-# README
+# Transerviços
+Esta é uma aplicação Rails 5.2.x
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Documentação
 
-Things you may want to cover:
+Este README descreve o objetivo deste repositório e como configurar um ambiente de desenvolvimento. Outras fontes de documentação são as seguintes:
 
-* Ruby version
+##  Prerequisites
+### This project requires:
 
-* System dependencies
+Ruby 2.6.4, preferencialmente gerenciado usando [Rbenv](https://github.com/rbenv/rbenv)
+[PostgreSQL](https://www.digitalocean.com/community/tutorials/how-to-set-up-ruby-on-rails-with-postgres) deve estar instalado e aceitando conexões.
 
-* Configuration
+Se você precisar de ajuda para configurar um ambiente de desenvolvimento Ruby, consulte este Guia de instalação do Rails OS X.
 
-* Database creation
+# Começando
+bin/setup
+Execute o script bin/setup. Este script irá:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Verificar se você tem a versão necessária do Ruby
+Instalar gemas usando o Bundler
+Criar cópias locais de .env e database.yml
+Criar, migrar e propagar/popular o banco de dados
+Executá-lo!
+Executar o teste bin/rake para garantir que tudo funcione.
+Executar teste bin/rake: sistema para executar testes do sistema (capivara).
+Execute bin/rails
