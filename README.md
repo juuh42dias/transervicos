@@ -5,8 +5,8 @@ Esta é uma aplicação Rails 5.2.x
 
 Este README descreve o objetivo deste repositório e como configurar um ambiente de desenvolvimento. Outras fontes de documentação são as seguintes:
 
-##  Prerequisites
-### This project requires:
+##  Pré requisitos
+### Este projeto requer:
 
 Ruby 2.6.4, preferencialmente gerenciado usando [Rbenv](https://github.com/rbenv/rbenv)
 [PostgreSQL](https://www.digitalocean.com/community/tutorials/how-to-set-up-ruby-on-rails-with-postgres) deve estar instalado e aceitando conexões.
