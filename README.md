@@ -8,20 +8,20 @@ Este README descreve o objetivo deste repositório e como configurar um ambiente
 ##  Pré requisitos
 ### Este projeto requer:
 
-Ruby 2.6.4, preferencialmente gerenciado usando [Rbenv](https://github.com/rbenv/rbenv)
+**Ruby 2.6.4**, preferencialmente gerenciado usando [Rbenv](https://github.com/rbenv/rbenv)  
 [PostgreSQL](https://www.digitalocean.com/community/tutorials/how-to-set-up-ruby-on-rails-with-postgres) deve estar instalado e aceitando conexões.
 
 Se você precisar de ajuda para configurar um ambiente de desenvolvimento Ruby, consulte este Guia de instalação do Rails OS X.
 
 # Começando
-bin/setup
-Execute o script bin/setup. Este script irá:
+**bin/setup**  
+Execute o script bin/setup. Este script irá:  
 
-Verificar se você tem a versão necessária do Ruby
-Instalar gemas usando o Bundler
-Criar cópias locais de .env e database.yml
-Criar, migrar e propagar/popular o banco de dados
-Executá-lo!
-Executar o teste bin/rake para garantir que tudo funcione.
-Executar teste bin/rake: sistema para executar testes do sistema (capivara).
-Execute bin/rails
+Verificar se você tem a versão necessária do Ruby  
+Instalar gemas usando o Bundler  
+Criar cópias locais de .env e database.yml  
+Criar, migrar e propagar/popular o banco de dados  
+Executá-lo!  
+Executar o teste bin/rake para garantir que tudo funcione.  
+Executar teste bin/rake: sistema para executar testes do sistema.  
+Execute bin/rails  
