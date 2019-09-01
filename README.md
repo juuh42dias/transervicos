@@ -17,11 +17,11 @@ Se você precisar de ajuda para configurar um ambiente de desenvolvimento Ruby, 
 **bin/setup**  
 Execute o script bin/setup. Este script irá:  
 
-Verificar se você tem a versão necessária do Ruby  
-Instalar gemas usando o Bundler  
-Criar cópias locais de .env e database.yml  
-Criar, migrar e propagar/popular o banco de dados  
-Executá-lo!  
-Executar o teste bin/rake para garantir que tudo funcione.  
-Executar teste bin/rake: sistema para executar testes do sistema.  
-Execute bin/rails  
+* Verificar se você tem a versão necessária do Ruby  
+* Instalar gemas usando o Bundler  
+* Criar cópias locais de .env e database.yml  
+* Criar, migrar e propagar/popular o banco de dados  
+* Executá-lo!  
+* Executar o teste bin/rake para garantir que tudo funcione.  
+* Executar teste bin/rake: sistema para executar testes do sistema.  
+* Execute bin/rails  
