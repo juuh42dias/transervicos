@@ -44,6 +44,7 @@ class ServicesController < ApplicationController
       end
     end
   end
+  # rubocop:enable Metrics/AbcSize
 
   # PATCH/PUT /services/1
   # PATCH/PUT /services/1.json
@@ -112,6 +113,7 @@ class ServicesController < ApplicationController
                                     :website, address_attributes: address_attributes)
   end
 
+  # rubocop:disable Metrics/AbcSize
   def prepare_search
     @services = Service.where(nil) # creates an anonymous scope
     @services = @services.text_search(params[:search]) unless params[:search].blank?
@@ -129,4 +131,5 @@ class ServicesController < ApplicationController
       action: action
     }
   end
+  # rubocop:enable Metrics/AbcSize
 end
