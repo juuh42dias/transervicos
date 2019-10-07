@@ -1,5 +1,7 @@
 [![Open Source Helpers](https://www.codetriage.com/juuh42dias/transervicos/badges/users.svg)](https://www.codetriage.com/juuh42dias/transervicos)
 
+Version in [ENGLISH](https://github.com/juuh42dias/transervicos/blob/master/README-EN.md)
+
 # Transerviços
 Esta é uma aplicação Rails 5.2.x
 
