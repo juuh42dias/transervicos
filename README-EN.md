@@ -12,8 +12,8 @@ This README describes the goal of this repository and how configure the develope
 ##  Pre conditions:
 ### Requirements:
 
-**Ruby 2.6.4**, preferencialmente gerenciado usando [Rbenv](https://github.com/rbenv/rbenv)  
-[PostgreSQL](https://www.digitalocean.com/community/tutorials/how-to-set-up-ruby-on-rails-with-postgres) deve estar instalado e aceitando conexões.
+**Ruby 2.6.4**, preferably managed using [Rbenv](https://github.com/rbenv/rbenv)  
+[PostgreSQL](https://www.digitalocean.com/community/tutorials/how-to-set-up-ruby-on-rails-with-postgres) must be installed and accept connections.
 
 If you need help to configure tan Ruby developer environment, consult this Rails OS X installation guide.
 
