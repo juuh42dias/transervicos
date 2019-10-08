@@ -357,6 +357,9 @@ section.content {
 				border: none;
 			}
 			.panel-heading {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
 				border-bottom: 2px $fuchsia solid;
 				.panel-title {
 					font-family: $font1;
@@ -656,17 +659,14 @@ footer.footer {
 	}
 }
 
-.like-dislike{
-  color: #cc2c71;
-  width: 100%;
-  position: absolute;
-  margin-left: 0%;
-  padding-bottom: 1%;
-  bottom: 0;
-    div{
-      float: left;
-      margin-right: 12px;
-      cursor: pointer;
+.like-dislike-container {
+	color: #cc2c71;
+	display: flex;
+	align-items: center;
+  height: 100%;
+    .like-dislike {
+			height: 100%;
+			align-self: center;
     }
 }
 
@@ -711,17 +711,4 @@ div{
   display: block;
   padding-top: 10px;
   color: red;
-}
-
-.report{
-  position: absolute;
-  padding-bottom: 1%;
-  right: 0;
-  bottom: 0;
-}
-
-.report button{
-  float: right;
-  margin-right: 10%;
-  font-size: 0.8em;
 }
