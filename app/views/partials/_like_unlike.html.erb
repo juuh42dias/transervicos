@@ -1,15 +1,15 @@
-<div data-service="<%= service.id %>" class="row like-dislike likes-container">
-    <div class=".col-xs-1">
+<div data-service="<%= service.id %>" class="row like-dislike-container">
+    <div class="like-dislike">
         <i class="fa <% if user_voted_up_service?(service) %>fa-thumbs-up<%else%>fa-thumbs-o-up<%end%> upvote"></i>
         <span class="number-thumbs-up">(<%= service.get_upvotes.size %>)</span>
     </div>
-    <div class=".col-xs-1">
+    <div class="like-dislike">
         <i class="fa <% if user_voted_down_service?(service) %>fa-thumbs-down<%else%>fa-thumbs-o-down<%end%>  downvote"></i>
         <span class="number-thumbs-down">(<%= service.get_downvotes.size %>)</span>
     </div>
-    <div class=".col-xs-1 report">
-      <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#reportModal" onclick="setServiceId(<%= service.id %>);"> 
-        Denunciar 
+    <div class="like-dislike">
+      <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#reportModal" onclick="setServiceId(<%= service.id %>);">
+        Denunciar
       </button>
     </div>
 </div>

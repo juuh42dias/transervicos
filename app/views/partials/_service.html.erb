@@ -2,10 +2,8 @@
   <div class="panel-heading">
     <h4 class="panel-title">
       <%= service.name %>
-      <div class="pull-right">
-        <%= render '/partials/like_unlike', service: service %>
-      </div>
     </h4>
+    <%= render '/partials/like_unlike', service: service %>
   </div>
   <div class="row info">
     <div class="col-sm-5">
