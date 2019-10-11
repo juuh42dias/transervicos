@@ -43,8 +43,8 @@
           </div>
         <% end %>
 
-        <p class="not-user-text">Caso deseje exlcuir sua conta, clique no botão abaixo.</p>
-        <%= button_to "Excluir minha conta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-form btn-block" %>
+        <p class="not-user-text">Caso deseje excluir sua conta, clique no botão abaixo.</p>
+        <%= button_to "Excluir minha conta", registration_path(resource_name), data: { confirm: "Você tem certeza que quer excluir sua conta?" }, method: :delete, class:"btn btn-form btn-block" %>
       </div>
     </div>
   </div>
