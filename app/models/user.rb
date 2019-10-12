@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates :terms_of_service, acceptance: true
   validates :username, uniqueness: true, allow_blank: true
   validate :age
-  has_many :services
+  has_many :services, dependent: :destroy
 
   SOCIAL_NAME_PREFERENCE = 'S'
   CIVIL_NAME_PREFERENCE = 'C'

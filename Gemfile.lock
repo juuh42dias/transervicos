@@ -61,7 +61,6 @@ GEM
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
-    bindex (0.8.1)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
     bootsnap (1.4.5)
@@ -294,6 +293,9 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.7)
+    rubocop-rails (2.3.2)
+      rack (>= 1.1)
+      rubocop (>= 0.72.0)
     ruby-progressbar (1.10.1)
     ruby_dep (1.5.0)
     rubyzip (1.3.0)
@@ -344,11 +346,6 @@ GEM
     unicode-display_width (1.6.0)
     warden (1.2.8)
       rack (>= 2.0.6)
-    web-console (3.7.0)
-      actionview (>= 5.0)
-      activemodel (>= 5.0)
-      bindex (>= 0.4.0)
-      railties (>= 5.0)
     webpacker (4.0.7)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
@@ -398,7 +395,8 @@ DEPENDENCIES
   rspec-activemodel-mocks
   rspec-rails (~> 3.8)
   rubocop
-  sassc
+  rubocop-rails
+  sassc-rails
   selenium-webdriver
   shoulda-matchers
   simple_form
@@ -407,7 +405,6 @@ DEPENDENCIES
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
-  web-console (>= 3.3.0)
   webpacker
   will_paginate
   will_paginate-bootstrap

@@ -12,12 +12,19 @@ Este README descreve o objetivo deste repositório e como configurar um ambiente
 ##  Pré requisitos
 ### Este projeto requer:
 
-**Ruby 2.6.4**, preferencialmente gerenciado usando [Rbenv](https://github.com/rbenv/rbenv)  
+
+**Ruby 2.6.4**, preferencialmente gerenciado usando [Rbenv](https://github.com/rbenv/rbenv).
 [PostgreSQL](https://www.digitalocean.com/community/tutorials/how-to-set-up-ruby-on-rails-with-postgres) deve estar instalado e aceitando conexões.
+
+**Docker e Docker Compose (opcionais)**
+Uma alternativa para executar o projeto em modo de desenvolvimento e/ou testes é
+utilizar o [Docker](https://docs.docker.com/install/) com [Docker
+Compose](https://docs.docker.com/compose/install/).
 
 Se você precisar de ajuda para configurar um ambiente de desenvolvimento Ruby, consulte este Guia de instalação do Rails OS X.
 
-# Começando
+# Começando sem Docker
+
 **bin/setup**  
 Execute o script bin/setup. Este script irá:  
 
@@ -29,3 +36,35 @@ Execute o script bin/setup. Este script irá:
 * Executar o teste bin/rake para garantir que tudo funcione.  
 * Executar teste bin/rake: sistema para executar testes do sistema.  
 * Execute bin/rails  
+
+# Começando com Docker
+
+Com Docker e Docker Compose instalados, execute no diretório raíz do projeto:
+
+* `docker-compose build` para criar as imagens necessárias
+* `docker-compose run web bash` para acessar o `shell` do container já com a
+  aplicação instalada
+
+Dentro desse `shell` você deve configurar o banco de dados antes de executar
+outros comandos. Para isso execute:
+
+`bin/setup`
+
+Para executar a aplicação, a partir do `shell` do Docker, execute:
+
+`rails server -b 0.0.0.0 `
+
+
+# Executando o projeto de forma local
+
+Para executar o projeto de forma local, após executar o comando `bin/setup`,
+basta executar `rails server`. A aplicação estará disponível no endereço:
+`localhost:3000` em seu navegador.
+
+Caso você esteja utilizando Docker, basta executar `docker-compose up`. A aplicação estará disponível no endereço:
+`localhost:3000` em seu navegador.
+
+
+# Rodando testes
+
+## PENDENTE

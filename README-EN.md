@@ -15,9 +15,18 @@ This README describes the goal of this repository and how configure the develope
 **Ruby 2.6.4**, preferably managed using [Rbenv](https://github.com/rbenv/rbenv)  
 [PostgreSQL](https://www.digitalocean.com/community/tutorials/how-to-set-up-ruby-on-rails-with-postgres) must be installed and accept connections.
 
+
+**Docker e Docker Compose (optional)**
+
+You can use [Docker](https://docs.docker.com/install/) and [Docker
+Compose](https://docs.docker.com/compose/install/)
+to run this project on development or test mode. 
+
 If you need help to configure tan Ruby developer environment, consult this Rails OS X installation guide.
 
-# Getting Started
+#
+# Getting Started without Docker
+
 **bin/setup**  
 Execute the bin/setup script. This script will:  
 
@@ -29,3 +38,24 @@ Execute the bin/setup script. This script will:
 * Run the bin/rake test to guarantee that everything is working fine.  
 * Run bin/rake test: system to execute every system tests.  
 * Run bin/rails  
+
+
+# Gettint Started with Docker
+
+After you have installed Docker and Docker Compose, run the commands below:
+
+* `docker-compose build` to create the Docker Images
+* `docker-compose run web bash` to open a `shell` inside the container with the
+  application already setup
+
+
+Within this `shell` you must setup the application database before running other
+commands. To do so, run: `bin/setup`
+
+To run the application, run:
+
+`rails server -b 0.0.0.0`
+
+# Testing
+
+## PENDING

@@ -116,7 +116,7 @@ class ServicesController < ApplicationController
   # rubocop:disable Metrics/AbcSize
   def prepare_search
     @services = Service.where(nil) # creates an anonymous scope
-    @services = @services.text_search(params[:search]) unless params[:search].blank?
+    @services = @services.text_search(params[:search]) if params[:search].present?
     if params[:state] && params[:state][:state_id].present?
       @services = @services.state_search(params[:state][:state_id])
     end
