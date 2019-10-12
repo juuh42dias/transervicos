@@ -52,10 +52,6 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
-  gem 'chromedriver-helper'
-  gem 'database_cleaner'
-  gem 'faker'
-  gem 'rails-controller-testing'
-  gem 'selenium-webdriver'
   gem 'shoulda-matchers'
+  gem 'simplecov', require: false
 end
