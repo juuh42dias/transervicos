@@ -25,7 +25,7 @@ class Service < ApplicationRecord
 
   default_scope { order('name ASC') }
 
-  before_save { |service| service.website = url_with_protocol(service.website) unless service.website.blank? }
+  before_save { |service| service.website = url_with_protocol(service.website) if service.website.present? }
   # rubocop:disable Metrics/LineLength
   scope :text_search, lambda { |text|
     where('unaccent(lower(services.name)) LIKE unaccent(:text) OR unaccent(lower(services.description)) LIKE unaccent(:text)', text: "%#{text.downcase}%")

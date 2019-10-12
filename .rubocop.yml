@@ -1,18 +1,23 @@
-inherit_from: .rubocop_todo.yml
+require:
+  - rubocop-rails
 
 Metrics/LineLength:
   Max: 120
 
 AllCops:
-  Exclude: 
+  TargetRubyVersion: 2.6
+  Exclude:
+    - bin/setup
+    - bin/update
     - db/schema.rb
     - db/migrate/*.rb
     - node_modules/**/*
+    - spec/spec_helper.rb
+    - spec/rails_helper.rb
 
 Style/Documentation:
   Enabled: false
 
-Style/MixinUsage:
-  Exclude:
-    - 'bin/setup'
-    - 'bin/update'
+Metrics/BlockLength:
+  ExcludedMethods: ['describe', 'context', 'feature', 'scenario', 'let']
+
