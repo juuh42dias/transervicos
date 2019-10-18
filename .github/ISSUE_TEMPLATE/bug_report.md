@@ -1,25 +1,25 @@
 ---
-name: "🐞 Bug report template"
-about: Please use this template when submitting a bug report
+name: "🐞 Template para bug reports"
+about: Por favor use este template quando quiser enviar bug reports
 title: "[BUG] - "
 labels: bug
 assignees: ''
 
 ---
 
-# What
-Description of the bug
+# O que houve
+Descrição do bug
 
-- When I [open a screen/click on a button], [something unexpected happens].
+- Quando eu [abro uma tela/clico em um botão], [algo inesperado acontece].
 
-# How to reproduce the bug
-Please be as specific as you can. Following this list, we can find the problem
-and get back to you faster:
+# Como reproduzir o bug
+Escreva da maneira mais específica possível. Uma boa ideia é seguir a lista
+abaixo, dessa forma podemos encontrar e arrumar o problema de forma mais rápida:
 
-- Browser name and version
-- OS name and version
-- Screenshots, if possible. We'd love these!
-- Where you clicked
-- What happened
+- Nome e versão do navegador usado
+- Nome e versão do sistema operacional
+- Prints, se possível. Eles ajudam muito a processar o problema.
+- Onde você clicou
+- O que aconteceu
 
-Thanks for your feedback! ♡
+Agradecemos seu feedback! ♡
