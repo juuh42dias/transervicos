@@ -3,26 +3,26 @@
 Version in [PORTUGUESE](https://github.com/juuh42dias/transervicos/blob/master/README.md)
 
 # Transerviços
-This is an Rails 5.2.x application.
+This is a Rails 5.2.x application.
 
 # Documentation
 
-This README describes the goal of this repository and how configure the developer environment. There also other documentation sources as follow:
+This README describes the goal of this repository and how to configure the development environment. There are also other documentation sources as follow:
 
 ##  Pre conditions:
 ### Requirements:
 
 **Ruby 2.6.4**, preferably managed using [Rbenv](https://github.com/rbenv/rbenv)  
-[PostgreSQL](https://www.digitalocean.com/community/tutorials/how-to-set-up-ruby-on-rails-with-postgres) must be installed and accept connections.
+[PostgreSQL](https://www.digitalocean.com/community/tutorials/how-to-set-up-ruby-on-rails-with-postgres) must be installed and accepting connections.
 
 
-**Docker e Docker Compose (optional)**
+**Docker and Docker Compose (optional)**
 
 You can use [Docker](https://docs.docker.com/install/) and [Docker
 Compose](https://docs.docker.com/compose/install/)
 to run this project on development or test mode. 
 
-If you need help to configure tan Ruby developer environment, consult this Rails OS X installation guide.
+If you need help to configure the Ruby development environment, consult this Rails OS X installation guide.
 
 #
 # Getting Started without Docker
@@ -30,14 +30,14 @@ If you need help to configure tan Ruby developer environment, consult this Rails
 **bin/setup**  
 Execute the bin/setup script. This script will:  
 
-* Verify if the necessary Ruby version was installed
-* Install the gems using the Bundler
-* Create local copies of .env and database.yml
-* Create, migrate and propagate/fill the database
+* Verify if the necessary Ruby version is installed
+* Install the gems using Bundler
+* Create local copies of `.env` and `database.yml`
+* Create, migrate and populate the database
 * Run!
-* Run the bin/rake test to guarantee that everything is working fine.  
-* Run bin/rake test: system to execute every system tests.  
-* Run bin/rails  
+* Run the `bin/rake test` to guarantee that everything is working fine.  
+* Run `bin/rake test:system` to execute every system tests.  
+* Run `bin/rails`
 
 
 # Gettint Started with Docker
