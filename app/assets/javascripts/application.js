@@ -18,6 +18,7 @@
 //= require_tree .
 //= require bootstrap-sprockets
 //= require jasny-bootstrap.min
+//= require components/application
 
 (function($, window, document) {
   'use strict';
