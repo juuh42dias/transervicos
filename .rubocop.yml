@@ -7,17 +7,17 @@ Metrics/LineLength:
 AllCops:
   TargetRubyVersion: 2.6
   Exclude:
-    - bin/setup
-    - bin/update
-    - db/schema.rb
-    - db/migrate/*.rb
-    - node_modules/**/*
-    - spec/spec_helper.rb
-    - spec/rails_helper.rb
+    - 'vendor/**/*'
+    - 'node_modules/**/*'
+    - 'bin/setup'
+    - 'bin/update'
+    - 'db/schema.rb'
+    - 'db/migrate/*.rb'
+    - 'spec/spec_helper.rb'
+    - 'spec/rails_helper.rb'
 
 Style/Documentation:
   Enabled: false
 
 Metrics/BlockLength:
   ExcludedMethods: ['describe', 'context', 'feature', 'scenario', 'let']
-

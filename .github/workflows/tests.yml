@@ -1,0 +1,43 @@
+name: Transerviços - Validações
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: ruby:2.6.4
+    env:
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      RAILS_ENV: test
+    services:
+      db:
+        image: postgres:11
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+        - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '8.16.2'
+    - name: Setup dependencies
+      run: |
+        wget -q -O - https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+        echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list
+        apt-get update -yq
+        apt-get install -y apt-transport-https build-essential cmake libpq-dev python3-software-properties software-properties-common unzip libgit2-dev yarn
+        cp config/database.yml.example config/database.yml
+        gem install bundler:2.0.1
+        gem install pronto pronto-rubocop pronto-brakeman
+        bundle check || bundle install --jobs $(nproc)
+        bundle exec rails db:create db:migrate db:seed db:test:prepare
+        yarn install
+        yarn run build
+    - run: pronto run -f gitlab -c origin/master
+    - run: rubocop --config .rubocop.yml
+    - run: brakeman
+    - run: rspec spec
