@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Visitor create an account' do
@@ -19,7 +21,7 @@ feature 'Visitor create an account' do
   end
 
   scenario 'and should be older than 18' do
-    birth_date = 17.years.ago.strftime("%d/%m/%Y")
+    birth_date = 17.years.ago.strftime('%d/%m/%Y')
     visit root_path
     click_on 'cadastre-se'
     fill_in 'Nome', with: 'Austin Smith'

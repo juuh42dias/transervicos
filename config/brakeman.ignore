@@ -1,0 +1,37 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 4,
+      "fingerprint": "2a44b61876ad78ab6caa258a825ef4ba869849d1628866d97122ce3c32fdcfb4",
+      "check_name": "LinkToHref",
+      "message": "Potentially unsafe model attribute in `link_to` href",
+      "file": "app/views/reports/index.html.erb",
+      "line": 18,
+      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
+      "code": "link_to(Service.find(params[:service_id]).website.html_safe, Service.find(params[:service_id]).website, :target => :_blank)",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "ReportsController",
+          "method": "find_reports_by_service",
+          "line": 19,
+          "file": "app/controllers/reports_controller.rb",
+          "rendered": {
+            "name": "reports/index",
+            "file": "app/views/reports/index.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "reports/index"
+      },
+      "user_input": "Service.find(params[:service_id]).website",
+      "confidence": "Weak",
+      "note": ""
+    }
+  ],
+  "updated": "2019-10-23 21:19:13 -0300",
+  "brakeman_version": "4.7.0"
+}
