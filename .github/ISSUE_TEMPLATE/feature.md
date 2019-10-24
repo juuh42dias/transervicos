@@ -1,19 +1,18 @@
 ---
-name: "✨ New feature issue template"
-about: "Want something new in the project? Use this template. 🎉"
+name: "✨ Template de issue para novas features"
+about: "Quer ver uma feature nova no projeto? Crie uma issue usando este template."
 title: "[FEATURE] - "
 labels: enhancement
 assignees: ''
 
 ---
+# O que é
+Descreva a feature que você gostaria de ver no projeto
 
-# What
-Description of the feature you'd like to see in the project.
+- Como uma [persona/papel] eu quero [ação] de forma que [resultado/benefício].
+- Quando [eu trabalho com alguma coisa/contexto de vida] eu quero que [motivação] de forma que [resultado/benefício].
 
-- As a [persona/role] I want to [action] so that [outcome/benefit].
-- When [users work/life context] I want to [motivation] so that [outcome/benefit].
+# Por que
+Motivos para incluir esta feature nova no projeto.
 
-# Why
-Reason for including this new feature in the project.
-
-Thanks for the feedback! ♡
+Agradecemos seu feedback! ♡
