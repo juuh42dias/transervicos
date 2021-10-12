@@ -197,7 +197,8 @@ GEM
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (4.0.1)
-    puma (3.12.2)
+    puma (4.3.9)
+      nio4r (~> 2.0)
     rack (2.0.7)
     rack-pjax (1.1.0)
       nokogiri (~> 1.5)
@@ -373,7 +374,7 @@ DEPENDENCIES
   pronto
   pronto-rubocop
   pry-rails
-  puma (~> 3.12)
+  puma (~> 4.3)
   rails (~> 5.2)
   rails_admin
   rspec-activemodel-mocks
