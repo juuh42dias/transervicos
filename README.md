@@ -67,13 +67,4 @@ Caso você esteja utilizando Docker, basta executar `docker-compose up`. A aplic
 
 # Rodando testes
 
-*  `bundle install` para instalar o Rspec, que está no gemfile.
-
-**Para executar todos os testes:**  `bundle exec rspec`
-> Executa todos os testes da pasta `spec`.
-
-**Para executar os testes de um único arquivo:** `bundle exec rspec ./spec/models/my_file.rb.`
-> Executa todos os testes do arquivo `my_file`.
-
-**Para executar um teste específico:**  `bundle exec rspec ./spec/models/my_file.rb:10`
-> Executa o teste na linha 10 do `my_file`.
+## PENDENTE

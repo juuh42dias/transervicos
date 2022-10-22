@@ -58,4 +58,11 @@ To run the application, run:
 
 # Testing
 
-## PENDING
+*  `bundle install` para instalar o Rspec, que está no gemfile.
+
+**Running everything at once:**  `bundle exec rspec`
+> Runs all your tests.
+**Running one RSpec file at a time:** `bundle exec rspec ./spec/models/my_file.rb.`
+> Runs only tests in `my_file`.
+**Running one specific test:**  `bundle exec rspec ./spec/models/my_file.rb:10`
+> Runs only tests on line 10 in `my_file`.
